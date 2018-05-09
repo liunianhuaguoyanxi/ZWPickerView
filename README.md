@@ -3,7 +3,7 @@
 ## How to use：
 ### Import the header file（设置头文件）
     #import "ZWPickerView.h"
-### 1.To initialize the ZWTopSelectVcView 
+### 1.To initialize the ZWPickerView
     ZWPickerView *view= [[ZWPickerView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height/4, self.view.frame.size.width, self.view.frame.size.height/2)];
     view.sourceArr=  self.cityListsArr;
     view.titleKeyName=@"name";
@@ -21,3 +21,6 @@
 ### 综上所述
 #### 1.根据服务器部署，动态设置层级, 更加灵活。
 #### 2.内容动态自适应，提升用户体验，性能不错。
+### 具体设置详情在demo中(The specific content about it is in the demo)
+### If you have any questions, please send the email to liunianhuaguoyanxi@Gmail.com or liunianhuaguoyanxi@163.com 
+### 若能给大家带来帮助，记得star🙂~
