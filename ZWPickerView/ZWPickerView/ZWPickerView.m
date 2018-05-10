@@ -50,6 +50,10 @@
 @property (nonatomic, weak) UIView       *sliderView;
 /** titleBarFont */
 @property (nonatomic, strong) UIFont     *titleBarFont;
+/** titleSelectColor */
+@property (nonatomic, strong) UIColor    *titleSelectColor;
+/** titleSelectColor */
+@property (nonatomic, strong) UIColor    *sliderViewColor;
 /** titleBtnsMutableArr */
 @property (nonatomic, strong) NSMutableArray *titleBtnsMutableArr;
 /** tableViewsMutableArr */
@@ -94,7 +98,9 @@
        withSegmentationheight:(CGFloat)segmentationheight
          withSliderViewheight:(CGFloat)sliderViewheight
             withTitleBtnWidth:(CGFloat)titleBtnWidth
-           withTitleBarheight:(UIFont *)titleBarFont;
+           withTitleBarheight:(UIFont *)titleBarFont
+        withTitleSelectColor:(UIColor *)titleSelectColor
+             withSiderViewColor:(UIColor *)siderViewColor;
 
 {
     if ([super initWithFrame:frame]) {
@@ -105,6 +111,8 @@
         self.sliderViewheight = sliderViewheight;
         self.titleBarFont = titleBarFont;
         self.titleBtnWidth = titleBtnWidth;
+        self.titleSelectColor = titleSelectColor;
+        self.sliderViewColor = siderViewColor;
         [self setUpView];
     }
     return self;
@@ -201,7 +209,7 @@
 {
 
     UIView *sliderView=[[UIView alloc]initWithFrame:CGRectMake(self.titleBtnSpacing/2, self.titleBarheight-self.sliderViewheight, initSliderWidth, self.sliderViewheight)];
-    sliderView.backgroundColor=[UIColor redColor];
+    sliderView.backgroundColor=self.sliderViewColor?self.sliderViewColor:[UIColor redColor];
     [self.titleContentView addSubview:sliderView];
     self.sliderView=sliderView;
 }
@@ -216,7 +224,7 @@
     titleBtn.titleLabel.textAlignment=NSTextAlignmentCenter;
     [titleBtn setTitle:text forState:0];
     titleBtn.backgroundColor=[UIColor whiteColor];
-    [titleBtn setTitleColor:[UIColor blackColor] forState:0];
+    [titleBtn setTitleColor:self.titleSelectColor?self.titleSelectColor:[UIColor blackColor] forState:0];
     titleBtn.index=index;
     [self.titleContentView addSubview: titleBtn];
     [self.titleBtnsMutableArr addObject:titleBtn];
@@ -227,6 +235,12 @@
         self.segmentationView.frame=CGRectMake(0, self.titleBarheight-self.segmentationheight, self.titleBtnX+self.frame.size.width, self.segmentationheight);
     }
     self.indexBtnCount=(int)self.titleBtnsMutableArr.count;
+    
+    for (ZWPickerButton *tmpBtn in self.titleBtnsMutableArr) {
+        if (tmpBtn.index!=index) {
+            [tmpBtn setTitleColor:[UIColor blackColor] forState:0];
+        }
+    }
 }
 
 -(void)initTableViewWithIndex:(int)index
@@ -268,7 +282,14 @@
     self.tableContentView.userInteractionEnabled=YES;
     self.currentTableView.frame=CGRectMake(tmpBtn.index*self.frame.size.width,0 , self.frame.size.width, self.tableContentView.frame.size.height-10);
     [self.currentTableView reloadData];
-//    NSLog(@"self.currentChooseCount %D clickToSwitchTableView",self.currentChooseCount);
+    
+    
+    [tmpBtn setTitleColor:self.titleSelectColor?self.titleSelectColor:[UIColor blackColor] forState:0];
+    for (ZWPickerButton *tmpBtn in self.titleBtnsMutableArr) {
+        if (tmpBtn.index!=sender.index) {
+            [tmpBtn setTitleColor:[UIColor blackColor] forState:0];
+        }
+    }
 }
 -(void)clickToFinish
 {
@@ -480,7 +501,12 @@
 
             [self refreshContenOffsetWithButton:tmpBtn];
 
-
+            [tmpBtn setTitleColor:self.titleSelectColor?self.titleSelectColor:[UIColor blackColor] forState:0];
+            for (ZWPickerButton *tmpAllBtn in self.titleBtnsMutableArr) {
+                if (tmpAllBtn.index!=tmpBtn.index) {
+                    [tmpAllBtn setTitleColor:[UIColor blackColor] forState:0];
+                }
+            }
 //            NSLog(@"self.currentChooseCount %D scrollViewDidEndDecelerating",self.currentChooseCount);
         }else
         {
@@ -489,7 +515,12 @@
 
             [self refreshContenOffsetWithButton:tmpBtn];
 
-
+            [tmpBtn setTitleColor:self.titleSelectColor?self.titleSelectColor:[UIColor blackColor] forState:0];
+            for (ZWPickerButton *tmpAllBtn in self.titleBtnsMutableArr) {
+                if (tmpAllBtn.index!=tmpBtn.index) {
+                    [tmpAllBtn setTitleColor:[UIColor blackColor] forState:0];
+                }
+            }
         }
 
     }];
@@ -644,7 +675,20 @@
        _titleBarFont= [UIFont systemFontOfSize:13];}
 }
 
-
+-(void)setTitleSelectColor:(UIColor *)titleSelectColor
+{
+    if (titleSelectColor) {
+        _titleSelectColor = titleSelectColor;
+    }else{
+        _titleSelectColor= [UIColor redColor];}
+}
+-(void)setSliderViewColor:(UIColor *)sliderViewColor
+{
+    if (sliderViewColor) {
+        _sliderViewColor = sliderViewColor;
+    }else{
+        _sliderViewColor= [UIColor redColor];}
+}
 - (void)setCompleteBtnFont:(UIFont *)completeBtnFont
 {
     _completeBtnFont=completeBtnFont;

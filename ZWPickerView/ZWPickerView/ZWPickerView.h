@@ -44,7 +44,9 @@
        withSegmentationheight:(CGFloat)segmentationheight
          withSliderViewheight:(CGFloat)sliderViewheight
             withTitleBtnWidth:(CGFloat)titleBtnWidth
-           withTitleBarheight:(UIFont *)titleBarFont;
+           withTitleBarheight:(UIFont *)titleBarFont
+         withTitleSelectColor:(UIColor *)titleSelectColor
+           withSiderViewColor:(UIColor *)siderViewColor;
 @end
 
 

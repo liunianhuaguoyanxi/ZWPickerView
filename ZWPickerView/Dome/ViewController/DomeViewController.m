@@ -59,7 +59,9 @@
                                     withSegmentationheight:1
                                       withSliderViewheight:2
                                  withTitleBtnWidth:50
-                                        withTitleBarheight:[UIFont systemFontOfSize:15]];
+                                        withTitleBarheight:[UIFont systemFontOfSize:16]
+                                      withTitleSelectColor:[UIColor redColor]
+                                        withSiderViewColor:[UIColor redColor]];
     
     view.completeBtnTitle=@"确认";
     
