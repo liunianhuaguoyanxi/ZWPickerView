@@ -10,8 +10,7 @@
     view.subArrKeyName=@"childRen";
     view.delegate=self;
     [self.view addSubview:view];
-    
-    -(void)ZWPickerViewDelegateClickToCloseZWPickerView:(ZWPickerView *)pickerView WithTotalTitleArr:(NSArray *)totalTitleArr withSelectItem:(NSDictionary *)selectItem
+    -(void)ZWPickerViewDelegateClickToCloseZWPickerView:(ZWPickerView *)pickerView WithTotalTitleArr:(NSArray *)totalTitleArr withSelectItem:(NSDictionary *)selectItem{}
 
 
     
