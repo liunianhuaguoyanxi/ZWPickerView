@@ -60,6 +60,14 @@
                                       withSliderViewheight:2
                                  withTitleBtnWidth:50
                                         withTitleBarheight:[UIFont systemFontOfSize:15]];
+    
+    view.completeBtnTitle=@"确认";
+    
+    view.completeBtnBackgroundColor=[UIColor lightGrayColor];
+    
+    view.completeBtnTitleColor=[UIColor whiteColor];
+    
+    view.completeBtnFont=[UIFont systemFontOfSize:16];
 
     view.frame=CGRectMake(0, self.view.frame.size.height/4, self.view.frame.size.width, self.view.frame.size.height/2);
     view.sourceArr=  self.companyListsArr;

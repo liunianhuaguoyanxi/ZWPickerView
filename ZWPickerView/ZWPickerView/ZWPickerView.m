@@ -645,4 +645,33 @@
 }
 
 
+- (void)setCompleteBtnFont:(UIFont *)completeBtnFont
+{
+    _completeBtnFont=completeBtnFont;
+    self.completeBtn.titleLabel.font=completeBtnFont;
+}
+- (void)setCompleteBtnBackgroundColor:(UIColor *)completeBtnBackgroundColor
+{
+    _completeBtnBackgroundColor=completeBtnBackgroundColor;
+     self.completeBtn.backgroundColor=completeBtnBackgroundColor;
+}
+
+- (void)setCompleteBtnTitle:(NSString *)completeBtnTitle
+{
+    _completeBtnTitle=completeBtnTitle;
+    [self.completeBtn setTitle:completeBtnTitle forState:0];
+}
+
+- (void)setCompleteBtnTitleColor:(UIColor *)completeBtnTitleColor
+{
+    _completeBtnTitleColor=completeBtnTitleColor;
+    [self.completeBtn setTitleColor:completeBtnTitleColor forState:0];
+}
+
+
+
+
+
+
+
 @end

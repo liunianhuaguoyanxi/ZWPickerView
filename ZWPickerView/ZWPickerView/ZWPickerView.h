@@ -17,17 +17,24 @@
 
 @interface ZWPickerView : UIView
 /** SourceArr */
-@property (nonatomic, strong) NSArray *sourceArr;
+@property (nonatomic, strong)  NSArray *sourceArr;
 
 /** ZWPickerViewDelegate */
-@property (nonatomic, weak)   id <ZWPickerViewDelegate>delegate;
+@property (nonatomic, weak)    id <ZWPickerViewDelegate>delegate;
 
 /** title Key Name in Dictionary of  sourceArr (标题对应主键名)  */
-@property (nonatomic, copy)   NSString *titleKeyName;
+@property (nonatomic, copy)    NSString *titleKeyName;
 
 /** subArr Key Name in Dictionary of  sourceArr (子数组对应主键名)*/
-@property (nonatomic, copy)   NSString *subArrKeyName;
+@property (nonatomic, copy)    NSString *subArrKeyName;
 
+@property (nonatomic, copy)    NSString *completeBtnTitle;
+
+@property (nonatomic, strong)  UIColor  *completeBtnBackgroundColor;
+
+@property (nonatomic, strong)  UIColor   *completeBtnTitleColor;
+
+@property (nonatomic, strong)  UIFont   *completeBtnFont;
 
 
 
