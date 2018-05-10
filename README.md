@@ -1,5 +1,7 @@
 # ZWPickerView
 ## 一款优雅灵活高性能的选择器(An elegant and flexible  selector which performance is  pretrey good and  supports multi-level menus)
+## show 
+![image](https://github.com/liunianhuaguoyanxi/ZWPickerView/blob/master/GIF/pic.gif)
 ## How to use：
 ### Import the header file（设置头文件）
     #import "ZWPickerView.h"
